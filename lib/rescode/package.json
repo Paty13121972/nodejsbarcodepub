@@ -1,0 +1,38 @@
+{
+  "name": "rescode",
+  "description": "Generate Codes (EAN13, QRCODE ..)",
+  "version": "0.1.5",
+  "author": {
+    "name": "Marco Egbring",
+    "email": "marco.egbring@epha.ch"
+  },
+  "dependencies": {},
+  "keywords": [
+    "codes",
+    "ean13",
+    "qrcode"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/epha/rescode"
+  },
+  "main": "index",
+  "bin": {},
+  "scripts": {
+    "prepublish": "npm prune"
+  },
+  "engines": {
+    "node": "*"
+  },
+  "readme": "Codes\n=========\nNotice that I am not the author of the code, I am just the creator of an npm module out of the great library from https://code.google.com/p/bwip-js/.\n\nInstall\n---------\n\tnpm install rescode\n\t\nExample\n--------\n\tvar codes = require(\"rescode\");\n\n\tfunction( res, req ) \n\t{\n\t\tvar data = codes.create(\"ean13\",\"4719512002889\");\n        \n        res.setHeader(\"Content-Type\",\"image/png\");\n\t\tres.end( data );\n        \n        OR\n        \n        res.end(\"<html><img src='data:image/png;base64,\"+data.toString(\"base64\")+\"' /></html>\");\n\t}\n\nConfigure\n---------\n\tChoose in lib/codes.js the Adatper PNG ( binary png ) or Canvas ( dataURL (smaller size), but canvas has to be installed )\n\tChoose in lib/bwipp/index.js the Code Generators and Defaults\n\t",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/epha/rescode/issues"
+  },
+  "_id": "rescode@0.1.5",
+  "dist": {
+    "shasum": "e8afaa533076e3631b83d8ab823e0a305a062512"
+  },
+  "_from": "rescode@*",
+  "_resolved": "https://registry.npmjs.org/rescode/-/rescode-0.1.5.tgz"
+}
